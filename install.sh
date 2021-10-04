@@ -33,9 +33,9 @@ echo ">> Fresh installation"
 sudo docker system prune --all
 
 echo ">> Injecting server's IP address"
-sed -i "s/SERVER_ADDRESS_TO_BE_REPLACED/$SERVER_ADDRESS_TO_BE_REPLACED/g" ./docker-compose.yml
+sed -i '' "s/SERVER_ADDRESS_TO_BE_REPLACED/$SERVER_ADDRESS_TO_BE_REPLACED/g" ./docker-compose.yml
 echo ">> Injecting forwarded port"
-sed -i "s/PORT_TO_BE_REPLACED/$PORT_TO_BE_REPLACED/g" ./docker-compose.yml
+sed -i '' "s/PORT_TO_BE_REPLACED/$PORT_TO_BE_REPLACED/g" ./docker-compose.yml
 
 echo ">> Running docker-compose"
 sudo docker-compose up --build -d
