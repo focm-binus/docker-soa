@@ -62,3 +62,10 @@ async def root():
         return {'status': 'success', 'data': process.stdout} 
     except Exception as e:
         return {"status":"failed", "message": str(e)}
+
+@app.get("/add")
+async def add(var1: int, var2: int):
+    try:
+        return {'status': 'success', 'result': var1+var2} 
+    except Exception as e:
+        return {"status":"failed", "message": str(e)}
