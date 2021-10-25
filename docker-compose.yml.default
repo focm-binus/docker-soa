@@ -24,6 +24,15 @@ services:
     command: ["/start-reload.sh"]
     volumes:
       - ./third_service/v1:/app/app
+  fourth_service:
+    build: ./fourth_service/
+    container_name: fourth_service
+    ports:
+      - "8004:8080"
+      - "50051:50051"
+    volumes:
+      - ./fourth_service/protos:/usr/src/app/protos
+      - ./fourth_service/server.js:/usr/src/app/server.js
   nginx:
     build: ./nginx/
     container_name: nginx
@@ -37,6 +46,7 @@ services:
       - first_service
       - second_service
       - third_service
+      - fourth_service
 
 
 
